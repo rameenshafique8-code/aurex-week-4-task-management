@@ -7,9 +7,6 @@
 - **Domain:** Full-Stack Web Development
 - **Week:** Week 4
 - **Project:** JavaScript Task Management Application
-
----
-
 ## 1. Project Overview
 
 The Task Management Application is a simple and responsive
@@ -21,10 +18,7 @@ editing, deleting, completing, and filtering tasks.
 The application uses browser localStorage to save tasks
 so that they remain available after refreshing the page.
 
----
-
 ## 2. Technologies Used
-
 - HTML5
 - CSS3
 - Vanilla JavaScript
@@ -34,8 +28,6 @@ so that they remain available after refreshing the page.
 - Git
 - GitHub
 - Visual Studio Code
-
----
 
 ## 3. Features Implemented
 
@@ -74,7 +66,7 @@ aurex-week-4/
 5.Alternatively, use the Live Server extension in Visual Studio Code to run the application.
 
 ## 6. Live Deployment
-Live Application Link: [Add your GitHub Pages or Vercel deployment link here]
+Live Application Link: [https://github.com/rameenshafique8-code/aurex-week-4-task-management.git]
 
 ## 7. Challenges Faced
 1.Understanding DOM manipulation and selecting HTML elements.
