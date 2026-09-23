@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="A simple and professional task management application to organize your daily tasks.">
+
+    <title>TaskFlow | Task Management</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+    <!-- Main Application -->
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+
+            <div class="brand">
+
+                <div class="brand-icon" aria-hidden="true">
+                    ✓
+                </div>
+
+                <div class="brand-text">
+                    <h1>TaskFlow</h1>
+                    <p>Your personal task manager</p>
+                </div>
+
+            </div>
+
+            <div class="header-badge">
+                <span class="status-dot" aria-hidden="true"></span>
+                Stay Productive
+            </div>
+
+        </header>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+
+                <div>
+                    <p class="section-label">YOUR WORKSPACE</p>
+
+                    <h2>Manage your tasks</h2>
+
+                    <p class="welcome-description">
+                        Organize your day, focus on what matters,
+                        and get things done.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- Statistics Section -->
+            <section class="stats-container" aria-label="Task statistics">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon total-icon" aria-hidden="true">
+                        ☰
+                    </div>
+
+                    <div>
+                        <p class="stat-title">Total Tasks</p>
+
+                        <p class="stat-number" id="total-count">
+                            0
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon" aria-hidden="true">
+                        ◷
+                    </div>
+
+                    <div>
+                        <p class="stat-title">Pending</p>
+
+                        <p class="stat-number" id="pending-count">
+                            0
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon completed-icon" aria-hidden="true">
+                        ✓
+                    </div>
+
+                    <div>
+                        <p class="stat-title">Completed</p>
+
+                        <p class="stat-number" id="completed-count">
+                            0
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Add Task Section -->
+            <section class="task-form-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Add a New Task</h3>
+
+                        <p>
+                            What would you like to accomplish today?
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <form id="task-form" novalidate>
+
+                    <div class="input-group">
+
+                        <label for="task-input">
+                            Task Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="task-input"
+                            name="task"
+                            placeholder="Enter your task here..."
+                            maxlength="200"
+                            autocomplete="off"
+                            aria-describedby="validation-message"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button type="submit" id="add-task-button">
+                        <span aria-hidden="true">+</span>
+                        Add Task
+                    </button>
+
+                </form>
+
+
+                <!-- Validation Message -->
+                <p
+                    id="validation-message"
+                    class="validation-message"
+                    role="alert"
+                    aria-live="polite"
+                ></p>
+
+            </section>
+
+
+            <!-- Task List Section -->
+            <section class="tasks-section">
+
+                <!-- Task List Heading -->
+                <div class="tasks-heading">
+
+                    <div>
+                        <h3>Your Tasks</h3>
+
+                        <p>
+                            Keep track of everything you need to do.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Task Filters -->
+                <div
+                    class="filter-container"
+                    role="group"
+                    aria-label="Filter tasks"
+                >
+
+                    <button
+                        type="button"
+                        class="filter-button active"
+                        data-filter="all"
+                        aria-pressed="true"
+                    >
+                        All Tasks
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="pending"
+                        aria-pressed="false"
+                    >
+                        Pending
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="completed"
+                        aria-pressed="false"
+                    >
+                        Completed
+                    </button>
+
+                </div>
+
+
+                <!-- Task List -->
+                <div class="task-list-container">
+
+                    <ul
+                        id="task-list"
+                        class="task-list"
+                        aria-label="Your task list"
+                    >
+                        <!-- JavaScript will add tasks here -->
+                    </ul>
+
+
+                    <!-- Empty State -->
+                    <div id="empty-state" class="empty-state">
+
+                        <div class="empty-icon" aria-hidden="true">
+                            ✓
+                        </div>
+
+                        <h4>No tasks yet</h4>
+
+                        <p>
+                            Add your first task above and start
+                            organizing your day.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Productivity Tip -->
+            <aside class="productivity-tip">
+
+                <div class="tip-icon" aria-hidden="true">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h4>Productivity Tip</h4>
+
+                    <p>
+                        Break large tasks into smaller steps.
+                        Completing small goals can help you stay
+                        motivated and focused.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="app-footer">
+
+            <p>
+                TaskFlow &copy; 2026
+            </p>
+
+            <p>
+                Plan your work. Complete your goals.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript File -->
+    <script src="scripts/main.js" defer></script>
+
+</body>
+
+</html>
